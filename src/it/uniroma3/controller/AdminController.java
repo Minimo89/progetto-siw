@@ -38,6 +38,14 @@ public class AdminController {
 		else
 			return "/faces/index.jsp";
 	}
+	
+	public String logOut(){
+		this.admin = null;
+		this.id = null;
+		this.username = null;
+		this.password = null;
+		return "/faces/index.jsp";
+	}
 
 	public Long getId() {
 		return id;

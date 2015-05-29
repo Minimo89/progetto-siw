@@ -11,8 +11,11 @@
 <body>
 <f:view>
 <h1>Profilo di ${customerController.customer.firstName} ${customerController.customer.lastName}</h1>
-<div><h:commandButton value = "Logout" action = "#{customerController.logOut }"/></div>
-<a href="<c:url value="/faces/index.jsp"/>">Home</a>
+<h:form>
+<div>
+		<h:commandButton value = "Logout" action = "#{customerController.logOut }"/>
+</div>
+</h:form>
 </f:view>
 </body>
 </html>

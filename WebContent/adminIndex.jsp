@@ -10,9 +10,12 @@
 </head>
 <body>
 <f:view>
-<h1>Profilo di ${adminController.admin.username} (admin)</h1>
-<div><a href="<c:url value="/faces/index.jsp"/>">Home</a></div>
-
+<h1>Profilo di ${adminController.admin.username } (Admin)</h1>
+<h:form>
+<div>
+		<h:commandButton value = "Logout" action = "#{adminController.logOut }"/>
+</div>
+</h:form>
 </f:view>
 </body>
 </html>

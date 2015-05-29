@@ -95,11 +95,12 @@ public class CustomerController {
 		if(customer != null){
 			this.id = customer.getId();
 			this.customer = customer;
-			return "customerIndex.jsp";
+			return "/faces/customerIndex.jsp";
 		}
 		else
 			return "/faces/index.jsp";
 	}
+	
 
 	public Long getId() {
 		return id;
