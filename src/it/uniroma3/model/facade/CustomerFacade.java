@@ -21,5 +21,18 @@ public class CustomerFacade {
 		this.em.persist(customer);
 		return customer;
 	}
+	
+	public Customer credentialCheck(String email, String password){
+		Customer customer;
+		try{
+			customer = (Customer) this.em.createNamedQuery("findCustomerByEmail").setParameter("email", email).getSingleResult();
+		} catch (Exception e){
+			return null;
+		}
+		if(customer.getPassword().equals(password))
+			return customer;
+		else
+			return null;
+	}
 
 }

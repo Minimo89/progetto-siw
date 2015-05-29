@@ -32,7 +32,7 @@
 				id="email"/> <h:message for="email"/>
 	</div>
 	<div>
-		Password: <h:inputText value="#{customerController.password}"
+		Password: <h:inputSecret value="#{customerController.password}"
 				required="true"
 				requiredMessage="La paswword è obbligatoria"
 				id="pass"/> <h:message for="pass"/>

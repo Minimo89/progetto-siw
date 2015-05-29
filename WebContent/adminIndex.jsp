@@ -10,8 +10,9 @@
 </head>
 <body>
 <f:view>
-<h1>Registrazione completata</h1>
-<a href = "<c:url value = "/faces/index.jsp" />">Home</a>
+<h1>Profilo di ${adminController.admin.username} (admin)</h1>
+<div><a href="<c:url value="/faces/index.jsp"/>">Home</a></div>
+
 </f:view>
 </body>
 </html>

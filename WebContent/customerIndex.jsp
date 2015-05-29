@@ -10,8 +10,9 @@
 </head>
 <body>
 <f:view>
-<h1>Registrazione completata</h1>
-<a href = "<c:url value = "/faces/index.jsp" />">Home</a>
+<h1>Profilo di ${customerController.customer.firstName} ${customerController.customer.lastName}</h1>
+<div><h:commandButton value = "Logout" action = "#{customerController.logOut }"/></div>
+<a href="<c:url value="/faces/index.jsp"/>">Home</a>
 </f:view>
 </body>
 </html>

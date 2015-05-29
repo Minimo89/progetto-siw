@@ -10,7 +10,10 @@
 </head>
 <body>
 <f:view>
-	<a href="<c:url value="/faces/newCustomer.jsp" />">Inserisci nuovo cliente</a>
+	<div><a href="<c:url value="/faces/newCustomer.jsp" />">Registrazione cliente</a></div>
+	<div><a href="<c:url value="/faces/customerLogin.jsp" />">Login cliente</a></div>
+	<div><a href="<c:url value="/faces/newAdmin.jsp" />">Registrazione admin</a></div>
+	<div><a href="<c:url value="/faces/adminLogin.jsp" />">Login admin</a></div>
 </f:view>
 </body>
 </html>

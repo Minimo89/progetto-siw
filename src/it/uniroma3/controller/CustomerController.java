@@ -57,7 +57,7 @@ public class CustomerController {
 			this.state = null;
 			this.zipcode = null;
 			this.customer = null;
-			return "newCustomer.jsp";
+			return "/faces/newCustomer.jsp";
 		}
 		this.address = new Address(street, city, country, state, zipcode);
 		this.customer = this.customerFacade.createCustomer(firstName, lastName, email, password, address, phoneNumber, date);
@@ -75,7 +75,7 @@ public class CustomerController {
 		this.state = null;
 		this.zipcode = null;
 		this.customer = null;
-		return "registrationComplete.jsp";
+		return "/faces/registrationComplete.jsp";
 	}
 	
 	public Date dateConverter(String date) throws ParseException{
@@ -89,9 +89,38 @@ public class CustomerController {
 		}
 		return dateOfBirth;
 	}
+	
+	public String logIn(){
+		Customer customer = this.customerFacade.credentialCheck(this.email, this.password);
+		if(customer != null){
+			this.id = customer.getId();
+			this.customer = customer;
+			return "customerIndex.jsp";
+		}
+		else
+			return "/faces/index.jsp";
+	}
 
 	public Long getId() {
 		return id;
+	}
+	
+	public String logOut(){
+		this.id = null;
+		this.firstName = null;
+		this.lastName = null;
+		this.email = null;
+		this.password = null;
+		this.address = null;
+		this.phoneNumber = null;
+		this.dateOfBirth = null;
+		this.street = null;
+		this.city = null;
+		this.country = null;
+		this.state = null;
+		this.zipcode = null;
+		this.customer = null;
+		return "/faces/index.jsp";
 	}
 
 	public void setId(Long id) {
