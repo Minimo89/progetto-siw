@@ -79,15 +79,7 @@ public class AdminController {
 		this.admin = admin;
 	}
 
-	public AdminFacade getAdminFacade() {
-		return adminFacade;
-	}
-
-	public void setAdminFacade(AdminFacade adminFacade) {
-		this.adminFacade = adminFacade;
-	}
-	
-	
+		
 	
 
 }

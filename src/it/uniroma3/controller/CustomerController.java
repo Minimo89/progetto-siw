@@ -256,14 +256,6 @@ public class CustomerController {
 		this.order = order;
 	}
 
-	public CustomerFacade getCustomerFacade() {
-		return customerFacade;
-	}
-
-	public void setCustomerFacade(CustomerFacade customerFacade) {
-		this.customerFacade = customerFacade;
-	}
-	
-	
+		
 
 }

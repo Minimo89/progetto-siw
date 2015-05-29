@@ -1,5 +1,6 @@
 package it.uniroma3.model;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -42,6 +43,7 @@ public class Product {
 		this.description = description;
 		this.price = price;
 		this.quantity = quantity;
+		this.providers = new LinkedList<Provider>();
 	}
 
 	public Long getId() {

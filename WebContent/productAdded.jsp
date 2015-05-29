@@ -10,14 +10,17 @@
 </head>
 <body>
 <f:view>
-<h1>Profilo di ${adminController.admin.username } (Admin)</h1>
-<h:form>
-<div><a href="<c:url value="/faces/newProduct.jsp"/>">Inserisci prodotto</a></div>
-<div><a href="<c:url value="/faces/newProvider.jsp"/>">Inserisci provider</a></div>
-<div>
-		<h:commandButton value = "Logout" action = "#{adminController.logOut }"/>
-</div>
-</h:form>
+<h1>Prodotto aggiunto: ${productController.product.name}</h1>
+
+<h2>Dettagli:</h2>
+<div>Codice: ${productController.product.code}</div>
+<div>Prezzo: ${productController.product.price}</div>
+<div>Quantità: ${productController.product.quantity}</div>
+<div>Descrizione: ${productController.product.description}</div>
+
+<div><a href="<c:url value="/faces/newProduct.jsp"/>">Aggiungi un'altro prodotto</a></div>
+<div><a href="<c:url value="/faces/adminIndex.jsp"/>">Home</a></div>
+
 </f:view>
 </body>
 </html>
