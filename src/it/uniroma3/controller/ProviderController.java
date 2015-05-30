@@ -1,5 +1,7 @@
 package it.uniroma3.controller;
 
+import java.util.List;
+
 import it.uniroma3.model.Address;
 import it.uniroma3.model.Provider;
 import it.uniroma3.model.facade.ProviderFacade;
@@ -20,6 +22,7 @@ public class ProviderController {
 	private String vatin;
 	private Address address;
 	private Provider provider;
+	private List<Provider> providers;
 	
 	private String street;
 	private String city;
@@ -30,8 +33,9 @@ public class ProviderController {
 	public String createProvider(){
 		this.address = new Address(this.street, this.city, this.country, this.state, this.zipcode);
 		this.provider = this.providerFacade.createProvider(this.name, this.phoneNumber, this.email, this.vatin, this.address);
-		return "/faces/provider.jsp";
+		return "/faces/adminIndex.jsp";
 	}
+	
 
 	public Long getId() {
 		return id;
@@ -128,6 +132,16 @@ public class ProviderController {
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
+
+	public List<Provider> getProviders() {
+		return providers;
+	}
+
+	public void setProviders(List<Provider> providers) {
+		this.providers = providers;
+	}
+	
+	
 	
 	
 

@@ -1,7 +1,11 @@
 package it.uniroma3.controller;
 
+import java.util.List;
+
 import it.uniroma3.model.Product;
+import it.uniroma3.model.Provider;
 import it.uniroma3.model.facade.ProductFacade;
+import it.uniroma3.model.facade.ProviderFacade;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -18,9 +22,13 @@ public class ProductController {
 	private String description;
 	private int quantity;
 	private Product product;
+	private List<Provider> providers;
 	
 	@EJB(beanName = "pFacade")
 	private ProductFacade productFacade;
+	
+	@EJB(beanName = "providerFacade")
+	private ProviderFacade providerFacade;
 	
 	public String createProduct(){
 		this.product = this.productFacade.createProduct(this.name, this.code, this.description, this.price, this.quantity);
@@ -31,6 +39,16 @@ public class ProductController {
 		this.quantity = 0;
 		return "/faces/productAdded.jsp";
 		
+	}
+	
+	public String goToSelectProvider(){
+		return "/faces/addProvider.jsp";
+	}
+	
+	public String addProvider(Long id){
+		Provider provider = this.providerFacade.findProvider(id);
+		this.product.getProviders().add(provider);
+		return "/faces/addProvider.jsp";
 	}
 
 	public Long getId() {
@@ -87,6 +105,14 @@ public class ProductController {
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+	public List<Provider> getProviders() {
+		return providers;
+	}
+
+	public void setProviders(List<Provider> providers) {
+		this.providers = providers;
 	}
 	
 	

@@ -18,5 +18,10 @@ public class ProviderFacade {
 		this.em.persist(provider);
 		return provider;
 	}
+	
+	public Provider findProvider(Long id){
+		Provider provider = this.em.find(Provider.class, id);
+		return provider;
+	}
 
 }
