@@ -3,18 +3,16 @@ package it.uniroma3.controller;
 import java.util.List;
 
 import it.uniroma3.model.Product;
-import it.uniroma3.model.Provider;
 import it.uniroma3.model.facade.ProductFacade;
-import it.uniroma3.model.facade.ProviderFacade;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ManagedProperty;
 
 @ManagedBean
-@SessionScoped
 public class ProductController {
 	
+	@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String name;
 	private String code;
@@ -22,34 +20,32 @@ public class ProductController {
 	private String description;
 	private int quantity;
 	private Product product;
-	private List<Provider> providers;
+	private List<Product> products;
 	
 	@EJB(beanName = "pFacade")
 	private ProductFacade productFacade;
 	
-	@EJB(beanName = "providerFacade")
-	private ProviderFacade providerFacade;
-	
 	public String createProduct(){
 		this.product = this.productFacade.createProduct(this.name, this.code, this.description, this.price, this.quantity);
-		this.name = null;
-		this.code = null;
-		this.description = null;
-		this.price = null;
-		this.quantity = 0;
 		return "/faces/productAdded.jsp";
 		
 	}
 	
-	public String goToSelectProvider(){
-		return "/faces/addProvider.jsp";
+	public String getAllProducts(){
+		this.products = this.productFacade.getAllProducts();
+		return "/faces/products.jsp";
 	}
 	
-	public String addProvider(Long id){
-		Provider provider = this.providerFacade.findProvider(id);
-		this.product.getProviders().add(provider);
-		return "/faces/addProvider.jsp";
+	public String findProduct(){
+		this.product = this.productFacade.findProduct(id);
+		return "/faces/product.jsp";
 	}
+	
+	public String findProduct(Long id){
+		this.product = this.productFacade.findProduct(id);
+		return "/faces/product.jsp";
+	}
+	
 
 	public Long getId() {
 		return id;
@@ -107,12 +103,12 @@ public class ProductController {
 		this.product = product;
 	}
 
-	public List<Provider> getProviders() {
-		return providers;
+	public List<Product> getProducts() {
+		return this.products;
 	}
 
-	public void setProviders(List<Provider> providers) {
-		this.providers = providers;
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 	
 	

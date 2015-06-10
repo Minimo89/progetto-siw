@@ -10,13 +10,30 @@
 </head>
 <body>
 <f:view>
-	<div><a href="<c:url value="/faces/newCustomer.jsp" />">Registrazione cliente</a></div>
-	<div><a href="<c:url value="/faces/customerLogin.jsp" />">Login cliente</a></div>
-	<div><a href="<c:url value="/faces/newAdmin.jsp" />">Registrazione admin</a></div>
-	<div><a href="<c:url value="/faces/adminLogin.jsp" />">Login admin</a></div>
-<h:form>	
-	<div><h:commandLink value="Listino" action="#{productController.getAllProducts }"/></div>
+<h:form>
+	<table>
+	<thead>
+		<tr>
+		<th>Nome</th>
+		<th>Prezzo</th>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+	<c:forEach var="product" items="#{productController.products }">
+		<tr>
+			<td>${product.name }</td>
+			<td>${product.price }</td>
+			<td><h:commandButton  value="Dettagli" action="#{productController.findProduct }">
+					<f:param name="id" value="#{product.id }"/>
+			</h:commandButton>
+		</tr>
+	</c:forEach>
+	</tbody>
+	</table>
+	<div><a href="<c:url value="/faces/index.jsp"/>">Home</a></div>
 </h:form>
+
 </f:view>
 </body>
 </html>

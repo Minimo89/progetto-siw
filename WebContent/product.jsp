@@ -10,13 +10,17 @@
 </head>
 <body>
 <f:view>
-	<div><a href="<c:url value="/faces/newCustomer.jsp" />">Registrazione cliente</a></div>
-	<div><a href="<c:url value="/faces/customerLogin.jsp" />">Login cliente</a></div>
-	<div><a href="<c:url value="/faces/newAdmin.jsp" />">Registrazione admin</a></div>
-	<div><a href="<c:url value="/faces/adminLogin.jsp" />">Login admin</a></div>
-<h:form>	
-	<div><h:commandLink value="Listino" action="#{productController.getAllProducts }"/></div>
-</h:form>
+<h1>${productController.product.name}</h1>
+
+<h2>Dettagli:</h2>
+<div>Codice: ${productController.product.code}</div>
+<div>Prezzo: ${productController.product.price}</div>
+<div>Quantità: ${productController.product.quantity}</div>
+<div>Descrizione: ${productController.product.description}</div>
+
+<div><h:commandLink value="Listino" action="#{productController.getAllProducts }"/></div>
+<div><a href="<c:url value="/faces/index.jsp"/>">Home</a></div>
+
 </f:view>
 </body>
 </html>
